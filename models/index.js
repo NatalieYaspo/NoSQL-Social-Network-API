@@ -1,3 +1,5 @@
-const Book = require('./User'); //Change name of this
+const User = require('./User');
+const Thought = require('./Thought');
+const Reaction = require('./Reaction');
 
-module.exports = { User }; //Change name of this
+module.exports = { User, Thought, Reaction };
