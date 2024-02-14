@@ -7,6 +7,7 @@ module.exports = {
   async getThoughts(req, res) {
     try {
       const thoughts = await Thought.find();
+      console.log(thoughts);
       res.json(thoughts);
     } catch (err) {
       res.status(500).json(err);
@@ -74,26 +75,16 @@ module.exports = {
   // Deletes a thought by ID
   async deleteThought(req, res) {
     try {
-      const thought = await Thought.findOneAndRemove({ _id: req.params.thoughtId });
+      const thought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
+      console.log(thought);
 
       if (!thought) {
         return res.status(404).json({ message: 'No thought with this id!' });
       }
 
-      const user = await User.findOneAndUpdate(
-        { thoughts: req.params.thoughtId },
-        { $pull: { thoughts: req.params.thoughtId } },
-        { new: true }
-      );
-
-      if (!user) {
-        return res.status(404).json({
-          message: 'thought created but no user with this id!',
-        });
-      }
-
       res.json({ message: 'Thought successfully deleted!' });
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },
@@ -110,7 +101,7 @@ module.exports = {
       if (!thought) {
         return res.status(404).json({ message: 'No thought with this id!' });
       }
-
+      console.log(thought);
       res.json(thought);
     } catch (err) {
       res.status(500).json(err);

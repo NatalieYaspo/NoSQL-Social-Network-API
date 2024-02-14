@@ -58,17 +58,17 @@ connection.once('open', async () => {
     {
       thoughtText: 'Blub, Bluub, Bluuuuub',
       user: 'Natalie1234',
-      reactions: [ 'Nice!' ],
+      reactionBody: [ 'Nice!' ],
     },
     {
       thoughtText: 'How much does this cost?',
       user: 'AwesomeUser',
-      reactions: ['Too much!'],
+      reactionBody: ['Too much!'],
     },
     {
       thoughtText: 'I don\'t know what to write here!',
       user: 'ZDuncan9876',
-      reactions: ['Me neither'],
+      reactionBody: ['Me neither'],
     },
   ];
 

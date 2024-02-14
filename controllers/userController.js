@@ -1,4 +1,4 @@
-const { User, Application } = require('../models');
+const { User, Thought } = require('../models');
 const { ObjectId } = require('mongoose').Types;
 
 module.exports = {
@@ -7,8 +7,10 @@ module.exports = {
     async getUsers(req, res) {
         try {
             const users = await User.find();
+            // console.log(users);
             res.json(users);
         } catch (err) {
+            // console.log(err);
             res.status(500).json(err);
         }
     },
@@ -16,7 +18,7 @@ module.exports = {
     // Get a single user
     async getSingleUser(req, res) {
         try {
-            const user = await User.findOne({ _id: req.params.ObjectId })
+            const user = await User.findOne({ _id: req.params.userId })
                 .select('-__v');
 
             if (!user) {
