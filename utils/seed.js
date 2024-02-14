@@ -17,22 +17,6 @@ connection.once('open', async () => {
       await connection.dropCollection('users');
     }
 
-
-  // // Create empty array to hold the users
-  // const users = [];
-
-  // // Loop 20 times -- add users to the users array
-  // for (let i = 0; i < 5; i++) {
-  //   // Get some random thought objects using a helper function that we imported from ./data
-  //   const thoughts = getRandomThoughts(1);
-
-  //   const username = getUsername();
-
-  //   users.push({
-  //     username,
-  //     thoughts,
-  //   });
-  // }
   const usernames = [
     {
       username: 'Natalie1234',
