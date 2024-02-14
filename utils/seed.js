@@ -1,6 +1,6 @@
 const connection = require('../config/connection');
 const { Thought, User } = require('../models');
-const { getRandomUsername, getRandomThoughts } = require('./data');
+// const { getUsername, getRandomThoughts } = require('./data');
 
 connection.on('error', (err) => err);
 
@@ -18,33 +18,68 @@ connection.once('open', async () => {
     }
 
 
-  // Create empty array to hold the users
-  const users = [];
+  // // Create empty array to hold the users
+  // const users = [];
 
-  // Loop 20 times -- add users to the users array
-  for (let i = 0; i < 3; i++) {
-    // Get some random thought objects using a helper function that we imported from ./data
-    const thoughts = getRandomThoughts(3);
+  // // Loop 20 times -- add users to the users array
+  // for (let i = 0; i < 5; i++) {
+  //   // Get some random thought objects using a helper function that we imported from ./data
+  //   const thoughts = getRandomThoughts(1);
 
-    const username = getRandomUsername();
+  //   const username = getUsername();
 
-    users.push({
-      username,
-      thoughts,
-    });
-  }
+  //   users.push({
+  //     username,
+  //     thoughts,
+  //   });
+  // }
+  const usernames = [
+    {
+      username: 'Natalie1234',
+      email: 'natalie1234@gmail.com',
+      thoughts: ['Umm...What?'],
+      friends: [ 'Westley', 'Solenn' ]
+    },
+    {
+      username: 'ZDuncan9876',
+      email: 'ZDuncan9876@gmail.com',
+      thoughts: ['Oy'],
+      friends: [],
+    },
+    {
+      username: 'AwesomeUser',
+      email: 'AwesomeUser@gmail.com',
+      thoughts: ['Whatever'],
+      friends: ['Charlie'],
+    },
+  ];
+  
+  const thoughts = [
+    {
+      thoughtText: 'Blub, Bluub, Bluuuuub',
+      user: 'Natalie1234',
+      reactions: [ 'Nice!' ],
+    },
+    {
+      thoughtText: 'How much does this cost?',
+      user: 'AwesomeUser',
+      reactions: ['Too much!'],
+    },
+    {
+      thoughtText: 'I don\'t know what to write here!',
+      user: 'ZDuncan9876',
+      reactions: ['Me neither'],
+    },
+  ];
 
   // Add users to the collection and await the results
-  await User.collection.insertMany(users);
+  await User.collection.insertMany(usernames);
 
   // Add thoughts to the collection and await the results
-  await Thought.collection.insertOne({
-    thoughtText: 'Hello World',
-    users: [...users],
-  });
+  await Thought.collection.insertMany(thoughts);
 
   // Log out the seed data to indicate what should appear in the database
-  console.table(users);
+  console.table(usernames);
   console.info('Seeding complete! 🌱');
   process.exit(0);
 });

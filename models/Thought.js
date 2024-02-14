@@ -1,14 +1,10 @@
 const { Schema, model } = require('mongoose');
-const Reaction = require('./Reaction');
+const reactionSchema = require('./Reaction');
 
 
 // Schema to create Tought model
 const thoughtSchema = new Schema(
     {
-        // thoughtID: {
-        //     type: Schema.Types.ObjectId,
-        //     default: () => new Types.ObjectId(),
-        // },
         thoughtText: {
             type: String,
             required: true,
@@ -23,23 +19,23 @@ const thoughtSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'User',
         },
-        reactions: [Reaction],
+        reactions: [reactionSchema],
     },
-    {
-        toJSON: {
-            virtuals: true,
-        },
-        id: false,
-    }
+    // {
+        // toJSON: {
+    //         virtuals: true,
+    //     },
+    //     id: false,
+    // }
 );
 
-// Create a virtual property `reactionCount` that gets and sets the user's reaction count
-thoughtSchema
-    .virtual('getReaction') //Is getReaction built?
-    // Getter
-    .get(function () {
-        return `Reactions: ${this.reactions}`;
-    });
+// // Create a virtual property `reactionCount` that gets and sets the user's reaction count
+// thoughtSchema
+//     .virtual('getReaction')
+//     // Getter
+//     .get(function () {
+//         return `Reactions: ${this.reactions}`;
+//     });
 
 // Initialize our User model
 const Thought = model('thought', thoughtSchema);

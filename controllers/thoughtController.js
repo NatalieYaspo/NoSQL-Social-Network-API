@@ -44,7 +44,7 @@ module.exports = {
         })
       }
 
-      res.json('Created the application 🎉');
+      res.json('Created the thought 🎉');
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -103,8 +103,8 @@ module.exports = {
     try {
       const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $addToSet: { tags: req.body } },
-        { runValidators: true, new: true }
+        { $addToSet: { reactions: req.body } },
+        { new: true }
       );
 
       if (!thought) {

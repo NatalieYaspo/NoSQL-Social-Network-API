@@ -4,10 +4,6 @@ const Friend = require('./Friend');
 // Schema to create User model
 const userSchema = new Schema(
   {
-    // userID: {
-    //   type: Schema.Types.ObjectId,
-    //   default: () => new Types.ObjectId(),
-    // },
     username: {
       type: String,
       required: true,
