@@ -22,19 +22,19 @@ connection.once('open', async () => {
       username: 'Natalie1234',
       email: 'natalie1234@gmail.com',
       thoughts: ['Umm...What?'],
-      friends: [ 'Westley', 'Solenn' ]
+      friendName: [ 'Westley', 'Solenn' ]
     },
     {
       username: 'ZDuncan9876',
       email: 'ZDuncan9876@gmail.com',
       thoughts: ['Oy'],
-      friends: [],
+      friendName: [],
     },
     {
       username: 'AwesomeUser',
       email: 'AwesomeUser@gmail.com',
       thoughts: ['Whatever'],
-      friends: ['Charlie'],
+      friendName: ['Charlie'],
     },
   ];
   

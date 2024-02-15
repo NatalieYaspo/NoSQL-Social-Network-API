@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
-const Friend = require('./Friend');
+const friendSchema = require('./Friend');
+const thoughtSchema = require('./Thought');
 
 // Schema to create User model
 const userSchema = new Schema(
@@ -22,10 +23,10 @@ const userSchema = new Schema(
         ref: 'Thought',
       },
     ],
-    friends: [
+    friends: [friendSchema,
       {
         type: Schema.Types.ObjectId,
-        ref: 'Friend',
+        ref: 'Thought',
       },
     ],
   },
@@ -43,7 +44,7 @@ userSchema
   .virtual('friendCount')
   // Getter
   .get(function () {
-    return `Total Friends: ${this.friends}`;
+    return `Total Friends: ${this.friends.length}`;
   });
 
 // Initialize our User model
