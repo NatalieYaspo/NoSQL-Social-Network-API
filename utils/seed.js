@@ -20,21 +20,15 @@ connection.once('open', async () => {
   const usernames = [
     {
       username: 'Natalie1234',
-      email: 'natalie1234@gmail.com',
-      thoughts: ['Umm...What?'],
-      friendName: [ 'Westley', 'Solenn' ]
+      email: 'natalie1234@gmail.com'
     },
     {
       username: 'ZDuncan9876',
-      email: 'ZDuncan9876@gmail.com',
-      thoughts: ['Oy'],
-      friendName: [],
+      email: 'ZDuncan9876@gmail.com'
     },
     {
       username: 'AwesomeUser',
-      email: 'AwesomeUser@gmail.com',
-      thoughts: ['Whatever'],
-      friendName: ['Charlie'],
+      email: 'AwesomeUser@gmail.com'
     },
   ];
   

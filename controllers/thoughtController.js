@@ -7,7 +7,7 @@ module.exports = {
   async getThoughts(req, res) {
     try {
       const thoughts = await Thought.find();
-      console.log(thoughts);
+      // console.log(thoughts);
       res.json(thoughts);
     } catch (err) {
       res.status(500).json(err);
@@ -113,8 +113,8 @@ module.exports = {
     try {
       const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $pull: { tags: { tagId: req.params.reactionId } } },
-        { runValidators: true, new: true }
+        { $pull: { reactions: { reactionId: req.params.reactionID } } },
+        { new: true }
       );
 
       if (!thought) {

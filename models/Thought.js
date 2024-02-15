@@ -21,6 +21,11 @@ const thoughtSchema = new Schema(
         },
         reactions: [reactionSchema],
     },
+    {
+        toJSON: {
+          getters: true,
+        },
+      }
 );
 
 
