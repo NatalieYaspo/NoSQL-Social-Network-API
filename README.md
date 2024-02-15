@@ -41,9 +41,7 @@ Developer:
 
 Collaborators:
 - Peters, Sasha via zoom on 14 Feb, 2024.
-
-Tutorials:
-- 
+- Le, Roger via zoom on 14 Feb, 2024.
 
 ## License
 
