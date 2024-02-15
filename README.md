@@ -32,7 +32,7 @@ This app is also able to create new (POST), update existing (PUT) and DELETE use
 For the users, you can add or delete Friends.
 For the thoughts, you can add or delete Reactions.
 
-Video Tutorial: 
+Video Tutorial: https://drive.google.com/file/d/1H4hxWcoKexqjyBIxxH13efGLKvbgwhO4/view
 
 ## Credits
 
